@@ -48,7 +48,8 @@ def verify(phone, code):
     """
 
     # 完整的Verify URL
-    target_url = VERIFY_SMS_CODE_URL + '{code}?mobilePhoneNumber={phone}'.format(code=code, phone=phone)
+    # target_url = VERIFY_SMS_CODE_URL + '{code}?mobilePhoneNumber={phone}'.format(code=code, phone=phone)
+    target_url = VERIFY_SMS_CODE_URL + "%s?mobilePhoneNumber=%s" % (code, phone)
 
     r = requests.post(target_url, headers=headers)
 

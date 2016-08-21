@@ -1,6 +1,7 @@
 #-*- coding: utf-8 -*-
 
-from flask import Flask, render_template, request, redirect, url_for
+# from flask import Flask, render_template, request, redirect, url_for
+from flask import *
 from func import sms
 
 __author__  = 'patrick_psq'
@@ -24,7 +25,7 @@ def do_login():
         if code == '':
             error_msg = 'Please input the verification code!'
         elif sms.verify(phone_number, code):
-            return redirect(url_for('success.html'))
+            return redirect(url_for('success'))
         else:
             error_msg = 'Your code is wrong, please check again!'
 
